@@ -6,7 +6,7 @@ function startGame() {
     iframe.style.display = 'block';
 }
 
-function showPopup(location, text, isContinue = false, mediaType = 'image') {
+function showPopup(location, text, isContinue = false, mediaType = 'image', fileName = '') {
     const popup = document.getElementById('popup');
     const popupText = document.getElementById('popup-text');
     const continueOptions = document.getElementById('continue-options');
@@ -22,11 +22,11 @@ function showPopup(location, text, isContinue = false, mediaType = 'image') {
     if (mediaType === 'video') {
         const videoElement = document.createElement('video');
         videoElement.controls = true;
-        videoElement.src = `../video/${location.toLowerCase().replace(/\s+/g, '_')}.mp4`; // Assuming video files are named in a certain way
+        videoElement.src = fileName ? `../video/${fileName}` : `../video/${location.toLowerCase().replace(/\s+/g, '_')}.mp4`;
         popupImage.appendChild(videoElement);
     } else {
         const imageElement = document.createElement('img');
-        imageElement.src = `../image/${location.toLowerCase().replace(/\s+/g, '_')}.jpg`; // Assuming image files are named in a certain way
+        imageElement.src = fileName ? `../image/${fileName}` : `../image/${location.toLowerCase().replace(/\s+/g, '_')}.jpg`;
         popupImage.appendChild(imageElement);
     }
 }
