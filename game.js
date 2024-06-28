@@ -22,11 +22,11 @@ function showPopup(location, text, isContinue = false, mediaType = 'image') {
     if (mediaType === 'video') {
         const videoElement = document.createElement('video');
         videoElement.controls = true;
-        videoElement.src = `../videos/${location.toLowerCase().replace(/\s+/g, '_')}.mp4`; // Assuming video files are named in a certain way
+        videoElement.src = `../video/${location.toLowerCase().replace(/\s+/g, '_')}.mp4`; // Assuming video files are named in a certain way
         popupImage.appendChild(videoElement);
     } else {
         const imageElement = document.createElement('img');
-        imageElement.src = `../images/${location.toLowerCase().replace(/\s+/g, '_')}.jpg`; // Assuming image files are named in a certain way
+        imageElement.src = `../image/${location.toLowerCase().replace(/\s+/g, '_')}.jpg`; // Assuming image files are named in a certain way
         popupImage.appendChild(imageElement);
     }
 }
