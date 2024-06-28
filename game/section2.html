@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 2</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="narrative">
+        <p>
+            This is some default dummy text for section 2. The story continues with the Abolition Movement and the important figures who contributed to the fight for freedom.
+        </p>
+    </div>
+    <div class="options">
+        <button class="option-button" onclick="showPopup('Levi Coffin', 'Civil War', true, 'video')">Levi Coffin</button>
+        <button class="option-button" onclick="showPopup('Frederick Douglass', 'Civil War', true)">Frederick Douglass</button>
+        <button class="option-button" onclick="showPopup('Harriet Tubman', 'Civil War', true)">Harriet Tubman</button>
+        <button class="option-button" onclick="showPopup('Civil War', 'Union Victory', true)">Civil War</button>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="popup-image"><!-- Image or video will go here --></div>
+            <p id="popup-text"></p>
+            <div id="continue-options">
+                <button class="option-button" onclick="continueGame('Union Victory')">Union Victory</button>
+            </div>
+        </div>
+    </div>
+    <script src="../game.js"></script>
+    <script>
+        // Load JSON data for the narrative
+        fetch('../Story.json')
+            .then(response => response.json())
+            .then(data => {
+                const section2Text = data.Section2.text;
+                const narrativeElement = document.querySelector('.narrative');
+                if (narrativeElement) {
+                    narrativeElement.textContent = section2Text;
+                }
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>       
+</body>
+</html>

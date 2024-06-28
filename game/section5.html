@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 5</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="narrative">
+        <p>
+            Vietnam War (Died 275k - 300k<br> 7245 Died).
+        </p>
+    </div>
+    <div class="options">
+        <button class="option-button" onclick="showPopup('Jim Crow', 'Nonviolent and Black Power', true)">Jim Crow</button>
+        <button class="option-button" onclick="showPopup('Vietnam War', '275 - 300k died 7245 Died')">Vietnam War</button>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="popup-image"><!-- Image or video will go here --></div>
+            <p id="popup-text"></p>
+            <div id="continue-options">
+                <!-- Buttons for specific options in the popup will be dynamically added -->
+                <button class="option-button" onclick="continueGame('Nonviolent')">Nonviolent</button>
+                <button class="option-button" onclick="continueGame('BP')">Black Power</button>
+            </div>
+        </div>
+    </div>
+    <script src="../game.js"></script>
+    <script>
+        // Load JSON data for the narrative
+        fetch('../Story.json')
+            .then(response => response.json())
+            .then(data => {
+                const section5Text = data.Section5.text;
+                const narrativeElement = document.querySelector('.narrative');
+                if (narrativeElement) {
+                    narrativeElement.innerHTML = section5Text;
+                }
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>  
+</body>
+</html>

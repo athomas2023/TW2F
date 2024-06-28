@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+body:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, yellow, orange);
+    z-index: -1;
+}
+
+header {
+    background-color: white;
+    border-bottom: 2px solid black;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: black;
+    color: white;
+}
+
+main {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+h1 {
+    color: white;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 4em;
+    margin: 0;
+    transition: all 0.5s;
+}
+
+h1.moved {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5em;
+    color: black;
+}
+
+.start-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-button:hover {
+    background-color: darkred;
+}
+
+#iframe-container {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+#game-frame {
+    width: 85%;
+    height: 80%;
+    border: none;
+    display: none;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 3</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="narrative">
+        <p>
+            Throughout the 17th and 18th centuries, European and American slave merchants purchased enslaved Africans who were kidnapped and transported to the Americas and forced into slavery in the American colonies; exploited to work in a foreign land, fearful and lost in a new world to produce tobacco, wheat, indigo, rice, sugar and cotton crops. These enslaved men and women worked in the northern cities of Boston and New York. They worked in the southern cities of Charleston, Richmond, and Baltimore. By the mid 19th century, the America’s westward expansion and the abolition movement provoked a great debate over slavery that would tear the nation apart in the most deadly war in American history, The Civil War. Though the Union victory freed the nation’s four million enslaved people, the legacy of slavery continues to influence American history, from the Reconstruction era to the civil rights movement that emerged a century after emancipation, to Black Lives Matter and beyond. The many paths taken, have twists and turns that lead to the unknown path of freedom for each individual from generation to generation.
+        </p>
+    </div>
+    <div class="options">
+        <button class="option-button" onclick="showPopup('Emancipation', 'Juneteenth text', true)">Emancipation</button>
+        <button class="option-button" onclick="showPopup('Reconstruction Era 1865', 'Scattered 1860s-1900', true)">Reconstruction Era 1865</button>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="popup-image"><!-- Image or video will go here --></div>
+            <p id="popup-text"></p>
+            <div id="continue-options">
+                <button class="option-button" onclick="continueGame('Reconstruction')">Reconstruction</button>
+            </div>
+        </div>
+    </div>
+    <script src="../game.js"></script>
+    <script>
+        // Load JSON data for the narrative
+        fetch('../Story.json')
+            .then(response => response.json())
+            .then(data => {
+                const section3Text = data.Section3.text;
+                const narrativeElement = document.querySelector('.narrative');
+                if (narrativeElement) {
+                    narrativeElement.textContent = section3Text;
+                }
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>       
+</body>
+</html>

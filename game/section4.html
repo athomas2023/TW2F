@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 4</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="narrative">
+        <p>
+            WWI (380,000 Blacks fought 1914-1918<br> 773 blacks died and 4,408 injured), WWII (More than 1 Million Blacks fought 1943-1945<br> 9,627 Black soldiers died).
+        </p>
+    </div>
+    <div class="options">
+        <button class="option-button" onclick="showPopup('WWI', '380,000 Blacks fought 1914-1918 773 blacks died and 4,408 injured', true)">WWI</button>
+        <button class="option-button" onclick="showPopup('WWII', 'More than 1 Million Blacks fought 1943-1945 9,627 Black soldiers died', true)">WWII</button>
+    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="popup-image"><!-- Image or video will go here --></div>
+            <p id="popup-text"></p>
+            <div id="continue-options">
+                <button class="option-button" onclick="continueGame('WWII')">Civil Rights Movement</button>
+            </div>
+        </div>
+    </div>
+    <script src="../game.js"></script>
+    <script>
+        // Load JSON data for the narrative
+        fetch('../Story.json')
+            .then(response => response.json())
+            .then(data => {
+                const section4Text = data.Section4.text;
+                const narrativeElement = document.querySelector('.narrative');
+                if (narrativeElement) {
+                    narrativeElement.innerHTML = section4Text;
+                }
+            })
+            .catch(error => console.error('Error loading JSON:', error));
+    </script>       
+</body>
+</html>
